@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'hello_world/index'
+  get 'user_form/new'
+  resources :user_forms
 
-  root to: 'hello_world#index'
+  root to: 'user_form#new'
 end
