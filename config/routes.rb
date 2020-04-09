@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'user_form/new'
+  get 'user_forms/new'
   resources :user_forms
 
-  root to: 'user_form#new'
+  root to: 'user_forms#new'
 end

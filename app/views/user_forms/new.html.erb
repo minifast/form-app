@@ -1,14 +1,13 @@
-<h1>Create a User Form</h1>
-<p>Here is where your form journey begins!</p>
-<br>
-<p>Enter your new form name here:</p>
+<h1><%= t(:title, scope: [:create]) %></h1>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %><br /></div>
+<% end %>
+<p><%= t(:title, scope: [:create, :form]) %></p>
 <%= form_for @user_form do |f| -%>
-	Form Name: <%= f.text_field :formname %> <br />
+	<%= f.text_field :formname %> <br />
 	<%= f.submit %>
 <% end -%>
-
 <hr>
-
 <p>Display all created forms</p> <br>
 <% if !@user_forms.blank? %>
 	<% for item in @user_forms %>
