@@ -1,18 +1,16 @@
-<h1><%= t(:title, scope: [:create]) %></h1>
+<h1><%= t('.title') %></h1>
 <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %><br /></div>
+    <div class="notice"><%= flash[:notice] %></div>
 <% end %>
-<p><%= t(:title, scope: [:create, :form]) %></p>
+<% if flash[:alert] %>
+  <% [ flash[:alert] ].flatten.each do |alert| %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+<% end %>
 <%= form_for @user_form do |f| -%>
-	<%= f.text_field :formname %> <br />
-	<%= f.submit %>
+	<section>
+    <%= f.label :name, t('.name') %>
+    <%= f.text_field :name %>
+  </section>
+	<%= f.submit t('.submit')%>
 <% end -%>
-<hr>
-<p>Display all created forms</p> <br>
-<% if !@user_forms.blank? %>
-	<% for item in @user_forms %>
-		<%= item.formname %> <br />
-	<% end %>
-<% else %>
-
-<% end %>

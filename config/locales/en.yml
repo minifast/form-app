@@ -30,7 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  create:
-    form:
-      title: "Form Name (ex. 'My New Form')"
-    title: Create New Form
+  user_forms:
+    create:
+      success: Form successfully created
+    new:
+      title: Create New Form
+      name: "Form Name (ex. 'My New Form')"
+      submit: Create Form

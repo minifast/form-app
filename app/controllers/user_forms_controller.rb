@@ -1,23 +1,22 @@
 class UserFormsController < ApplicationController
 	def new
   	@user_form = UserForm.new
-  	@user_forms = UserForm.all
   end
 
   def create
   	@user_form = UserForm.new(user_form_params)
   	if @user_form.save
+  		flash.notice = t('.success')
   		redirect_to new_user_form_path
-  		flash.notice = "Post successfully created!"
   	else
-  		flash.notice = "Form is invalid"
-
+  		flash.alert = @user_form.errors.full_messages
+      render :new
   	end
   end
 
   private
 
   def user_form_params
-  	params.require(:user_form).permit(:formname)
+  	params.require(:user_form).permit(:name)
   end
 end
