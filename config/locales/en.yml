@@ -30,6 +30,10 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  footer:
+    copyright: © 2020 Ministry of Velocity
+    privacy: Privacy Policy
+    terms: Terms of Use
   user_forms:
     create:
       success: Form successfully created
