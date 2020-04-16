@@ -1,0 +1,16 @@
+%oceana-container {
+  position: relative;
+
+  @include at-size(small) {
+    width: screen-width(small);
+    margin: 0 auto;
+  }
+
+  @include at-size(medium) {
+    width: screen-width(medium);
+  }
+
+  @include at-size(large) {
+    width: screen-width(large);
+  }
+}

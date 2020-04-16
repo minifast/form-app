@@ -1,0 +1,178 @@
+$golden-ratio: 1.61803398875;
+
+$styles: (
+  display1: (
+    font-family: cronos-pro,
+    text-transform: uppercase,
+    font-size: 42px,
+    font-weight: 400,
+    line-height: 34px,
+  ),
+  display2: (
+    font-family: cronos-pro,
+    text-transform: uppercase,
+    font-size: 26px,
+    font-weight: 400,
+    line-height: 26px,
+  ),
+  display3: (
+    font-family: cronos-pro,
+    font-size: 22px,
+    font-weight: 400,
+    line-height: 22px,
+  ),
+  display4: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 20px,
+    font-weight: 400,
+    line-height: 20px,
+  ),
+  title: (
+    font-family: cronos-pro,
+    font-size: 20px,
+    line-height: floor(25px * $golden-ratio),
+    font-weight: 400,
+  ),
+  subtitle: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 18px,
+    font-weight: 300,
+    line-height: floor(18px * $golden-ratio),
+  ),
+  body: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 16px,
+    line-height: floor(16px * $golden-ratio),
+  ),
+  logo: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 16px,
+    line-height: floor(16px * $golden-ratio),
+    font-weight: 500,
+    text-decoration: none,
+    letter-spacing: initial,
+  ),
+  navigation: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 14px,
+    line-height: floor(14px * $golden-ratio),
+    font-weight: 500,
+    text-decoration: none,
+    letter-spacing: initial,
+  ),
+  mobile-menu: (
+    font-family: cronos-pro,
+    font-size: 26px,
+    line-height: floor(26px * $golden-ratio),
+    font-weight: 600,
+    text-decoration: none,
+    letter-spacing: floor(26px * (1 - (1 / $golden-ratio)) * (1 - (1 / $golden-ratio)))
+  ),
+  footer-navigation: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 14px,
+    line-height: floor(14px * $golden-ratio),
+    font-weight: 500,
+    text-decoration: none,
+    text-transform: uppercase,
+    letter-spacing: 1px,
+  ),
+  footer-legal: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 13px,
+    line-height: floor(13px * $golden-ratio),
+    font-weight: 500,
+    text-decoration: none,
+    letter-spacing: 1px,
+  ),
+  button: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 16px,
+    line-height: floor(16px * $golden-ratio),
+    text-transform: uppercase,
+    font-weight: 400,
+  ),
+  dialogue-heading: (
+    font-family: cronos-pro,
+    font-size: 25px,
+    font-weight: 400,
+    line-height: 25px + floor(25px * (1 / $golden-ratio) * (1 - (1 / $golden-ratio)))
+  ),
+  contact-label: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 24px,
+    line-height: floor(24px * $golden-ratio),
+    font-weight: 400,
+  ),
+  contact-input: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 24px,
+    line-height: floor(23px * $golden-ratio),
+    font-weight: 400,
+  ),
+  contact-method: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 14px,
+    line-height: floor(14px * $golden-ratio),
+    font-weight: 400,
+    text-decoration: none,
+    letter-spacing: initial,
+  ),
+  diagram-title: (
+    font-family: cronos-pro,
+    font-size: 30px,
+    font-weight: 400,
+    line-height: floor(30px * $golden-ratio),
+  ),
+  gallery-title: (
+    font-family: cronos-pro,
+    font-size: 40px,
+    font-weight: 400,
+    line-height: floor(40px * $golden-ratio),
+  ),
+  gallery-client: (
+    font-family: ff-basic-gothic-pro,
+    font-size: 20px,
+    font-weight: 500,
+    text-transform: uppercase,
+    line-height: floor(20px * $golden-ratio),
+  )
+);
+
+@mixin formapp-text($style) {
+  @if map-has-key($styles, $style) == false {
+    @warn "Font style `#{$style}` not found.";
+  } @else {
+    @if map-has-key(map-get($styles, $style), "font-family") == true {
+      font-family: map-get(map-get($styles, $style), "font-family");
+    }
+
+    @if map-has-key(map-get($styles, $style), "font-weight") == true {
+      font-weight: map-get(map-get($styles, $style), "font-weight");
+    }
+
+    @if map-has-key(map-get($styles, $style), "font-size") == true {
+      font-size: map-get(map-get($styles, $style), "font-size");
+    }
+
+    @if map-has-key(map-get($styles, $style), "line-height") == true {
+      line-height: map-get(map-get($styles, $style), "line-height");
+    }
+
+    @if map-has-key(map-get($styles, $style), "text-decoration") == true {
+      text-decoration: map-get(map-get($styles, $style), "text-decoration");
+    }
+
+    @if map-has-key(map-get($styles, $style), "text-transform") == true {
+      text-transform: map-get(map-get($styles, $style), "text-transform");
+    }
+
+    @if map-has-key(map-get($styles, $style), "letter-spacing") == true {
+      letter-spacing: map-get(map-get($styles, $style), "letter-spacing");
+    }
+  }
+}
+
+@function formapp-space($exponent) {
+  @return space($exponent) * map-get(map-get($styles, "body"), "line-height");
+}

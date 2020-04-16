@@ -1,0 +1,26 @@
+$header-sizes: (
+  "portrait": formapp-space(1) + formapp-space(-2),
+  "landscape": formapp-space(1),
+  "full": formapp-space(2)
+);
+
+@function header-size($size) {
+  @if map-has-key($header-sizes, $size) == false {
+    @warn "Header size `#{$size}` not found.";
+    @return null;
+  }
+
+  @return map-get($header-sizes, $size);
+}
+
+%oceana-header {
+  min-height: header-size(portrait);
+
+  @include in-landscape() {
+    min-height: header-size(landscape);
+  }
+
+  @include at-size(small) {
+    min-height: header-size(full);
+  }
+}

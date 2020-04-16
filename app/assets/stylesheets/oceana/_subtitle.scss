@@ -1,0 +1,13 @@
+%oceana-subtitle {
+  @include formapp-text("subtitle");
+  margin: formapp-space(0) auto 0 auto;
+  text-align: center;
+
+  @include at-size(xsmall) {
+    width: screen-width(xsmall);
+  }
+
+  @include at-size(small) {
+    width: screen-width(small);
+  }
+}

@@ -1,0 +1,32 @@
+$colors: (
+  "red": (
+    "300": #ea6929,
+    "400": #e24301,
+    "500": #d93f02,
+    "600": #c53902,
+  ),
+  "gold": (
+    "500": #ad9159,
+  ),
+  "grey": (
+    "500": #555,
+    "700": #444444,
+    "900": rgb(38, 38, 38),
+  ),
+  "white": ("0": #ffffff),
+  "black": ("1000": #000000),
+);
+
+@function formapp-color($color-name, $contrast) {
+  @if map-has-key($colors, $color-name) == false {
+    @warn "Color `#{$color-name}` not found.";
+    @return null;
+  }
+
+  @if map-has-key(map-get($colors, $color-name), $contrast) == false {
+    @warn "Color `#{$color-name}` at contrast `#{$contrast}` not found.";
+    @return null;
+  }
+
+  @return map-get(map-get($colors, $color-name), $contrast);
+}

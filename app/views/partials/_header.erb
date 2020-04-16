@@ -1,8 +1,21 @@
-<section><%= link_to "FormApp", root_path %></section>
-<section>
-  <%= link_to "Create New Form", root_path %>
-  <%= link_to "My Forms", root_path %>
-  <%= link_to "Forms Settings", root_path %>
-  <%= link_to "Account", root_path %>
-  <%= link_to "Sign Out", root_path %>
+<section class= 'formapp-header'>
+  <section class= 'formapp-header__container'>
+    <p class= 'formapp-header__title'>
+      <%= link_to 'FormApp', root_path, class: 'formapp-header__link', title: t(:title, scope: :header) %>
+    </p>
+
+    <input type='checkbox' id='formapp-header__navigation-toggle-input' class='formapp-header__navigation-toggle-input' aria-label='<%= t(:toggle_menu, scope: [:header]) %>' />
+    <label class='formapp-header__navigation-toggle' for='formapp-header__navigation-toggle-input'>
+      <span class='formapp-header__navigation-toggle-bar formapp-header__navigation-toggle-bar--top'></span>
+      <span class='formapp-header__navigation-toggle-bar formapp-header__navigation-toggle-bar--bottom'></span>
+    </label>
+
+    <nav class= 'formapp-header__navigation'>
+      <%= link_to t(:create_new_form, scope: [:header]), root_path, class: 'formapp-header__link' %>
+      <%= link_to t(:my_forms, scope: [:header]), root_path, class: 'formapp-header__link' %>
+      <%= link_to t(:forms_settings, scope: [:header]), root_path, class: 'formapp-header__link' %>
+      <%= link_to t(:account, scope: [:header]), root_path, class: 'formapp-header__link' %>
+      <%= link_to t(:sign_out, scope: [:header]), root_path, class: 'formapp-header__link' %>
+    </nav>
+  </section>
 </section>

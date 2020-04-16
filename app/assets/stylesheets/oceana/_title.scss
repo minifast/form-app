@@ -1,0 +1,59 @@
+%oceana-title {
+  @include formapp-text("title");
+  text-align: center;
+  margin: 0 auto;
+
+  @include at-size(xsmall) {
+    width: screen-width(xsmall);
+  }
+
+  @include at-size(small) {
+    width: screen-width(small);
+  }
+
+  @include at-size(medium) {
+    width: screen-width(medium);
+  }
+}
+
+%oceana-title--decorated {
+  position: relative;
+  padding-top: formapp-space(1);
+}
+
+%oceana-title--chevron {
+  position: relative;
+  padding-top: formapp-space(2);
+}
+
+%oceana-title-dot {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: formapp-space(-2);
+  height: formapp-space(-2);
+  margin-left: formapp-space(-2) / -2;
+  background: formapp-color("red", "500");
+}
+
+%oceana-title-dash {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: formapp-space(-6);
+  width: formapp-space(1);
+  margin-left: formapp-space(1) / -2;
+  background: formapp-color("red", "500");
+}
+
+%oceana-title-caret {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: formapp-space(-1);
+  margin-left: formapp-space(-1) / -2;
+  polygon { fill: formapp-color("red", "500"); }
+}

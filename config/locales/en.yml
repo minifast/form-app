@@ -31,13 +31,23 @@
 
 en:
   footer:
-    copyright: © 2020 Ministry of Velocity
+    copyright: ©
+    ministry_of_velocity: Ministry of Velocity
     privacy: Privacy Policy
     terms: Terms of Use
+  header:
+    title: FormApp
+    toggle_menu: Toggle Menu
+    create_new_form: Create New Form
+    my_forms: My Forms
+    forms_settings: Forms Settings
+    account: Account
+    sign_out: Sign Out
   user_forms:
     create:
       success: Form successfully created
     new:
-      title: Create New Form
+      error: Form could not be created.
       name: "Form Name (ex. 'My New Form')"
       submit: Create Form
+      title: Create New Form

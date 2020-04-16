@@ -5,13 +5,15 @@ RSpec.describe "Creating a form", type: :feature do
     visit root_path
 
     click_on 'Create Form'
-    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Form could not be created")
+
+    fill_in 'Form Name', with: '.'
+    click_on 'Create Form'
+    expect(page).to have_content("Form could not be created. Name is too short")
 
     fill_in 'Form Name', with: 'My New Form'
     click_on 'Create Form'
 
     expect(page).to have_content("Form successfully created")
-
-    # expect(page).to have_content("0 Total Messages")
   end
 end
