@@ -1,17 +1,27 @@
-<h1><%= t('.title') %></h1>
-<% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-<% if flash[:alert] %>
-  <% [ flash[:alert] ].flatten.each do |alert| %>
-    <div class="alert"><%= flash[:alert] %></div>
-  <% end %>
-<% end %>
-<%= form_for @user_form do |f| -%>
-	<section>
-    <%= f.label :name, t('.name') %>
-    <%= f.text_field :name %>
+<section class= 'create_form__container'>
+  <section class= 'create_form__title'><%= t('.title') %></section>
+  <section class= 'create_form__form--content'>
+    <article class= 'create_form__flash'>
+      <% if flash[:notice] %>
+        <div class='create_form__flash--notice'>
+          <%= embedded_svg 'success.svg', class: 'create_form__flash--notice-icon' %>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <% [ flash[:alert] ].flatten.each do |alert| %>
+          <div class="create_form__flash--alert">
+            <%= embedded_svg 'error.svg', class: 'create_form__flash--alert-icon' %>
+            <%= t('.error') %>
+            <%= flash.alert.last %></div>
+        <% end %>
+      <% end %>
+    </article>
+      <%= form_for @user_form do |f| -%>
+        <%= f.label :name, t('.name') %>
+        <%= f.text_field :name, :class => 'create_form__form--text-field', :maxlength =>'60' %>
+        <%= f.submit t('.submit'), :class => 'create_form__form--button' %>
+      <% end -%>
   </section>
-	<%= f.submit t('.submit')%>
-<% end -%>
-<%= t('.title') %>
+</section>
+

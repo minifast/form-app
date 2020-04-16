@@ -1,0 +1,71 @@
+.create_form {
+
+  &__container {
+    @extend %oceana-container;
+    margin-top: formapp-space(4);
+    margin-bottom: formapp-space(4);
+  }
+
+  &__title {
+    @extend %oceana-title;
+    margin-bottom: formapp-space(2);
+  }
+
+  &__form {
+    @extend %oceana-text-field;
+    ::placeholder { color: formapp-color('red', '500'); }
+
+    @include at-size(small) {
+      margin: formapp-space(3) 0;
+    }
+
+    @include at-size(medium) {
+      flex: 0 0 formapp-space(5);
+    }
+
+    &--content {
+      width: 50%;
+      margin: 0 auto;
+    }
+
+    &--text-field {
+      @extend %oceana-text-field;
+      @extend %oceana-text-field--inline;
+      @extend %oceana-text-field__input;
+      @extend %oceana-text-field__line--dashed;
+      margin-bottom: formapp-space(2);
+
+
+    }
+
+    &--button {
+      width: 100%;
+      background-color: #e7e7e7;
+      height: formapp-space(1);
+      margin: formapp-space(0) 0;
+      font-size: 16pt;
+      color: formapp-color('red', '500');
+      outline: 1px solid formapp-color('red', '500');
+    }
+  }
+
+  &__flash {
+    &--alert {
+      color: formapp-color('red', '500');
+    }
+
+    &--alert-icon {
+      fill: formapp-color('red', '500');
+      margin-right: formapp-space(-4);
+    }
+
+    &--notice {
+      color: formapp-color('black', '1000');
+    }
+
+    &--notice-icon {
+      fill: formapp-color('black', '1000');
+      margin-right: formapp-space(-4);
+    }
+  }
+}

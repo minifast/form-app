@@ -1,0 +1,8 @@
+<svg width="10px" height="9px" viewBox="0 0 10 9">
+  <g transform="translate(-43.000000, -231.000000)">
+    <g transform="translate(43.000000, 231.000000)">
+      <polygon transform="translate(5.000000, 4.500000) rotate(-315.000000) translate(-5.000000, -4.500000) " points="-0.553571429 3.94642857 10.577381 3.74404762 10.5535714 5.05357143 -0.577380952 5.25595238"></polygon>
+      <polygon transform="translate(5.000000, 4.500000) rotate(-45.000000) translate(-5.000000, -4.500000) " points="-0.577380952 3.74404762 10.5535714 3.94642857 10.577381 5.25595238 -0.553571429 5.05357143"></polygon>
+    </g>
+  </g>
+</svg>

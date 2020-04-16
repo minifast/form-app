@@ -1,4 +1,8 @@
 <section class='formapp-footer'>
-<section class='formapp-content'><%= I18n.t(:copyright, scope: [:footer])%></section>
-<section class='formapp-content'><%= link_to I18n.t(:privacy, scope: [:footer]), root_path %> | <%= link_to I18n.t(:terms, scope: [:footer]), root_path %></section>
+  <section class='formapp-footer__container'>
+    <section class='formapp-footer__content'>
+      <article class='formapp-footer__content--lower'><%= link_to t(:copyright, scope: [:footer]) + " " + Date.current.year.to_s +  " " + t(:ministry_of_velocity, scope: [:footer]), 'http://www.ministryofvelocity.com', class: 'formapp-footer__content--links' %></article>
+      <article class='formapp-footer__content--lower'><%= link_to t(:privacy, scope: [:footer]), root_path, class: 'formapp-footer__content--links' %> | <%= link_to t(:terms, scope: [:footer]), root_path, class: 'formapp-footer__content--links' %></article>
+    </section>
+  </section>
 </section>

@@ -25,6 +25,8 @@ end
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :test do

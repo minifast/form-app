@@ -1,0 +1,23 @@
+  $screen-widths: (
+  "xsmall": 360px,
+  "small": 600px,
+  "medium": 900px,
+  "large": 1200px,
+);
+
+@function screen-width($size) {
+  @if map-has-key($screen-widths, $size) == false {
+    @warn "Screen width `#{$size}` not found.";
+    @return null;
+  }
+
+  @return map-get($screen-widths, $size);
+}
+
+@mixin at-size($size) {
+  @media (min-width: screen-width($size)) { @content; }
+}
+
+@mixin in-landscape() {
+  @media (orientation: landscape) and (max-width: screen-width(small)) { @content; }
+}

@@ -1,0 +1,59 @@
+%oceana-text-field {
+  position: relative;
+  margin-bottom: formapp-space(1);
+}
+
+%oceana-text-field--inline {
+  @include at-size(medium) {
+    flex: 1;
+    margin-bottom: 0;
+    margin-right: formapp-space(-1);
+  }
+}
+
+%oceana-text-field__input {
+  @include formapp-text("body");
+  background: 0;
+  border: 0 none;
+  outline: none;
+  margin-bottom: formapp-space(-4);
+  display: block;
+  width: 100%;
+
+  &::placeholder {
+    transition: color 0.25s ease-in-out;
+    color: formapp-color("black", "1000");
+  }
+}
+
+%oceana-text-field__input--focus {
+  &::placeholder { color: formapp-color("grey", "500"); }
+}
+
+%oceana-text-field__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-bottom: floor(formapp-space(-5)) solid formapp-color("black", "1000");
+  transition: background-color 0.25s ease-in-out;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -1 * floor(formapp-space(-5));
+    left: 0;
+    right: 0;
+    border-bottom: floor(formapp-space(-5)) solid formapp-color("red", "500");
+    transform: scaleX(0);
+    transition: transform 0.25s ease-in-out;
+  }
+}
+
+%oceana-text-field__line--dashed {
+  border-bottom: floor(formapp-space(-5)) dotted formapp-color("red", "500");
+}
+
+%oceana-text-field__line--focus {
+  &:after { transform: scaleX(1); }
+}

@@ -1,0 +1,17 @@
+$golden-ratio: 1.61803398875;
+
+@function space($exponent) {
+  $value: 1;
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $golden-ratio;
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $golden-ratio;
+    }
+  }
+
+  @return $value;
+}

@@ -17,15 +17,10 @@ RSpec.describe "UserForms", type: :request do
 
       it "renders an alert" do
         post user_forms_path, params: { user_form: { name: '' } }
-        expect(response.body).to include(CGI.escape_html("Name can't be blank"))
+        expect(response.body).to include(CGI.escape_html("Form could not be created."))
       end
     end
     context "when the form is valid" do
-      it "redirects to the list of all forms" do
-        post user_forms_path, params: { user_form: { name: 'Sandwiches' } }
-        expect(response).to redirect_to(user_forms_path)
-      end
-
       it "creates a user form" do
         expect do
           post user_forms_path, params: { user_form: { name: 'Sandwiches' } }

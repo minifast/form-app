@@ -1,0 +1,38 @@
+.formapp-footer {
+  text-align: center;
+
+
+  @include at-size(small) {
+    padding: 0 0 formapp-space(-1) 0;
+  }
+
+  &__container { @extend %oceana-container; }
+
+  &__content {
+    position: relative;
+    vertical-align: middle;
+
+    &--lower {
+      margin: 0;
+    }
+
+    @include at-size(small) {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 formapp-space(-1);
+
+      &--lower { padding: formapp-space(-1) 0 0 0; }
+    }
+
+    @include at-size(medium) {
+      margin: 0 formapp-space(0);
+
+      &--lower { padding-top: formapp-space(-1); }
+    }
+
+    &--links {
+      @include formapp-text('navigation');
+      color: formapp-color('black', '1000');
+    }
+  }
+}
