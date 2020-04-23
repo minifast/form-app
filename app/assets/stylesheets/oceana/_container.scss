@@ -2,7 +2,7 @@
   position: relative;
 
   @include at-size(small) {
-    width: screen-width(small);
+    width: floor(screen-width(small) + (screen-width(small) / 6));
     margin: 0 auto;
   }
 
