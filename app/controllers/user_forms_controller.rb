@@ -7,7 +7,7 @@ class UserFormsController < ApplicationController
   	@user_form = UserForm.new(user_form_params)
   	if @user_form.save
   		flash.notice = t('.success')
-  		redirect_to user_forms_new_path
+  		redirect_to new_user_form_path
   	else
   		flash.alert = @user_form.errors.full_messages
       render :new
