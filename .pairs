@@ -1,0 +1,11 @@
+pairs:
+  el: Erica Love; erica
+  mo: Matt Olenick; matto
+
+email:
+  prefix: pair
+  domain: ministryofvelocity.com
+
+email_addresses:
+
+global: true
