@@ -11,8 +11,14 @@
   </head>
 
   <body>
-    <header><%= render 'partials/header' %></header>
-    <%= yield %>
+    <header>
+      <%= render 'partials/header' %>
+    </header>
+    <section class= 'formapp__container'>
+
+      <%= render 'partials/flash' %>
+      <%= yield %>
+    </section>
     <footer><%= render 'partials/footer' %></footer>
   </body>
 </html>

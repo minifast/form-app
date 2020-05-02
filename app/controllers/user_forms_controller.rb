@@ -1,5 +1,9 @@
 class UserFormsController < ApplicationController
-	def new
+	def index
+    @user_forms = UserForm.all
+  end
+
+  def new
   	@user_form = UserForm.new
   end
 
@@ -7,9 +11,8 @@ class UserFormsController < ApplicationController
   	@user_form = UserForm.new(user_form_params)
   	if @user_form.save
   		flash.notice = t('.success')
-  		redirect_to new_user_form_path
+  		redirect_to user_forms_path
   	else
-  		flash.alert = @user_form.errors.full_messages
       render :new
   	end
   end

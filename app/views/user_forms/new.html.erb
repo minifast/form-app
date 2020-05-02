@@ -1,27 +1,15 @@
-<section class= 'create_form__container'>
-  <section class= 'create_form__title'><%= t('.title') %></section>
-  <section class= 'create_form__form--content'>
-    <article class= 'create_form__flash'>
-      <% if flash[:notice] %>
-        <div class='create_form__flash--notice'>
-          <%= inline_svg_tag 'success.svg', class: 'create_form__flash--notice-icon' %>
-          <%= flash[:notice] %>
-        </div>
-      <% end %>
-      <% if flash[:alert] %>
-        <% [ flash[:alert] ].flatten.each do |alert| %>
-          <div class="create_form__flash--alert">
-            <%= inline_svg_tag 'error.svg', class: 'create_form__flash--alert-icon' %>
-            <%= t('.error') %>
-            <%= flash.alert.last %></div>
-        <% end %>
-      <% end %>
-    </article>
-      <%= form_for @user_form do |f| -%>
-        <%= f.label :name, t('.name') %>
-        <%= f.text_field :name, :class => 'create_form__form--text-field', :maxlength =>'60' %>
-        <%= f.submit t('.submit'), :class => 'create_form__form--button' %>
-      <% end -%>
-  </section>
+<section class= 'title'> <%= t('.title') %></section>
+<section class= 'flash--alert'>
+ <% @user_form.errors.full_messages.each do |error| %>
+  <%= inline_svg_tag 'error.svg', class: 'flash--alert-icon' %>
+  <%= t('.error') %>
+  <%= error %>
+ <% end %>
 </section>
-
+<section class= 'create_form__form--content'>
+  <%= form_for @user_form do |f| -%>
+    <%= f.label :name, t('.name') %>
+    <%= f.text_field :name, :class => 'create_form__form--text-field', :maxlength =>'60' %>
+    <%= f.submit t('.submit'), :class => 'create_form__form--button' %>
+  <% end -%>
+</section>

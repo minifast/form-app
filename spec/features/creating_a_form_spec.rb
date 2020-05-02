@@ -15,5 +15,8 @@ RSpec.describe "Creating a form", type: :feature do
     click_on 'Create Form'
 
     expect(page).to have_content("Form successfully created")
+    expect(page).to have_css("section", text: "My Forms")
+    expect(page).to have_content("My New Form")
+    expect(page).to have_link("Add New Form")
   end
 end

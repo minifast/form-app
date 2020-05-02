@@ -1,0 +1,30 @@
+.flash {
+
+  &--alert {
+    width: 50%;
+    margin: 0 auto;
+    color: formapp-color('red', '500');
+  }
+
+  &--alert-icon {
+    fill: formapp-color('red', '500');
+    margin-right: formapp-space(-4);
+  }
+
+  &--container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: formapp-space(2);
+  }
+
+  &--notice {
+    color: formapp-color('black', '1000');
+  }
+
+  &--notice-icon {
+    fill: formapp-color('black', '1000');
+    margin-right: formapp-space(-4);
+  }
+
+}

@@ -11,8 +11,8 @@
     </label>
 
     <nav class= 'formapp-header__navigation'>
-      <%= link_to t(:create_new_form, scope: [:header]), root_path, class: 'formapp-header__link' %>
-      <%= link_to t(:my_forms, scope: [:header]), root_path, class: 'formapp-header__link' %>
+      <%= link_to t(:create_new_form, scope: [:header]), user_forms_new_path, class: 'formapp-header__link' %>
+      <%= link_to t(:my_forms, scope: [:header]), user_forms_path, class: 'formapp-header__link' %>
       <%= link_to t(:forms_settings, scope: [:header]), root_path, class: 'formapp-header__link' %>
       <%= link_to t(:account, scope: [:header]), root_path, class: 'formapp-header__link' %>
       <%= link_to t(:sign_out, scope: [:header]), root_path, class: 'formapp-header__link' %>

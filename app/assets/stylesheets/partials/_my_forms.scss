@@ -1,0 +1,19 @@
+.my_forms {
+
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__link {
+    a {
+      color: formapp-color('red', '500');
+    }
+  }
+
+  &__list {
+    margin: formapp-space(2) 0;
+  }
+
+}

@@ -21,11 +21,23 @@ RSpec.describe "UserForms", type: :request do
       end
     end
     context "when the form is valid" do
+      it "redirects to the list of all forms" do
+        post user_forms_path, params: { user_form: { name: 'Sandwiches' } }
+        expect(response).to redirect_to(user_forms_path)
+      end
+
       it "creates a user form" do
         expect do
           post user_forms_path, params: { user_form: { name: 'Sandwiches' } }
         end.to change(UserForm, :count).by(1)
       end
+    end
+  end
+
+  describe "GET #index" do
+    it "renders the new template" do
+      get user_forms_path
+      expect(response).to render_template(:index)
     end
   end
 end

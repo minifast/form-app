@@ -43,9 +43,15 @@ en:
     forms_settings: Forms Settings
     account: Account
     sign_out: Sign Out
+  partials:
+
   user_forms:
     create:
       success: Form successfully created
+    index:
+      header: My Forms
+      add_new_form: Add New Form
+      title: My Forms
     new:
       error: Form could not be created.
       name: "Form Name (ex. 'My New Form')"

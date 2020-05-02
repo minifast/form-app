@@ -1,0 +1,9 @@
+.formapp {
+
+  &__container {
+    @extend %oceana-container;
+    margin-top: formapp-space(4);
+    margin-bottom: formapp-space(4);
+  }
+
+}
