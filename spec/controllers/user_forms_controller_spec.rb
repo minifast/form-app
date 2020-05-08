@@ -20,7 +20,8 @@ RSpec.describe UserFormsController, type: :controller do
       end
     end
     context "when there are forms created" do
-      let(:user_form) {UserForm.create(name: "Contact Form")}
+      let(:user_form) { FactoryBot.create(:user_form) }
+
       it "returns existing forms" do
         make_request
         expect(assigns(:user_forms)).to eq([user_form])
@@ -84,7 +85,7 @@ RSpec.describe UserFormsController, type: :controller do
     end
 
     context "when the user form exists" do
-      let(:user_form) {UserForm.create(name: "Contact Form")}
+      let(:user_form) { FactoryBot.create(:user_form) }
 
       it "is successful" do
         make_request(user_form)
