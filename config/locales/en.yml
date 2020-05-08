@@ -57,3 +57,5 @@ en:
       name: "Form Name (ex. 'My New Form')"
       submit: Create Form
       title: Create New Form
+    show:
+      title: Form Inbox

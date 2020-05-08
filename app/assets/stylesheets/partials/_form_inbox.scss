@@ -1,23 +1,11 @@
-.my_forms {
+.form_inbox {
   &__title {
     @extend %oceana-title;
     margin-bottom: formapp-space(2);
   }
-
   &__content {
     display: flex;
     align-items: center;
     flex-direction: column;
   }
-
-  &__link {
-    a {
-      color: formapp-color('red', '500');
-    }
-  }
-
-  &__list {
-    margin: formapp-space(2) 0;
-  }
-
 }

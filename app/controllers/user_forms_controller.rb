@@ -17,6 +17,10 @@ class UserFormsController < ApplicationController
   	end
   end
 
+  def show
+    @user_form = UserForm.find(params[:id])
+  end
+
   private
 
   def user_form_params

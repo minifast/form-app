@@ -1,8 +1,10 @@
-<section class= 'title'> <%= t('.title') %></section>
+<section class= 'my_forms__title'> <%= t('.title') %></section>
 <section class= 'my_forms__content'>
   <article class='my_forms__link'><%= link_to t('.add_new_form'), new_user_form_path %></article>
 
   <% @user_forms.each do |user_form| %>
-    <article class= 'my_forms__list'><%= user_form.name %></article>
+    <article class= 'my_forms__list'>
+      <article class= 'my_forms__link'><%= link_to user_form.name, user_form_path(id: user_form.id) %></article>
+    </article>
   <% end %>
 </section>

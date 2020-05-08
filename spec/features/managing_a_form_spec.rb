@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Creating a form", type: :feature do
+RSpec.describe "Managing a form", type: :feature do
   scenario 'displays the form' do
     visit root_path
 
@@ -16,7 +16,11 @@ RSpec.describe "Creating a form", type: :feature do
 
     expect(page).to have_content("Form successfully created")
     expect(page).to have_css("section", text: "My Forms")
-    expect(page).to have_content("My New Form")
     expect(page).to have_link("Add New Form")
+
+    click_on 'My New Form'
+    expect(page).to have_content("Form Inbox")
+    expect(page).to have_content("My New Form")
+
   end
 end

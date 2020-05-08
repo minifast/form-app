@@ -1,4 +1,8 @@
 .create_form {
+  &__title {
+    @extend %oceana-title;
+    margin-bottom: formapp-space(2);
+  }
 
   &__form {
     @extend %oceana-text-field;
