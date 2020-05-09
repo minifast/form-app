@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Managing a form", type: :feature do
-  scenario 'displays the form' do
+  scenario 'manages a form', :js do
     visit root_path
 
     click_on 'Create Form'
@@ -22,5 +22,8 @@ RSpec.describe "Managing a form", type: :feature do
     expect(page).to have_content("Form Inbox")
     expect(page).to have_content("My New Form")
 
+    click_on 'Delete Form'
+    page.accept_alert
+    expect(page).not_to have_content("My New Form")
   end
 end

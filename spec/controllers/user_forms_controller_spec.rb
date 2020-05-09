@@ -98,4 +98,29 @@ RSpec.describe UserFormsController, type: :controller do
       end
     end
   end
+
+  describe "DELETE #destroy" do
+    def make_request(user_form_id)
+      delete :destroy, params: {id: user_form_id}
+    end
+
+    context "when the user form does not exist" do
+      it "raises an error" do
+        expect{make_request(-1)}.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
+
+    context "when the user form exists" do
+      let!(:user_form) { FactoryBot.create(:user_form) }
+
+      it "redirects to show page" do
+        make_request(user_form)
+        expect(response).to redirect_to(user_forms_path)
+      end
+
+      it "deletes the user form" do
+        expect{make_request(user_form)}.to change(UserForm, :count).by(-1)
+      end
+    end
+  end
 end

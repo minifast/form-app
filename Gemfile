@@ -17,6 +17,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '>= 2.15'
+  gem 'capybara-screenshot'
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 4.0.0'
   gem 'webdrivers'

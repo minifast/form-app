@@ -21,6 +21,13 @@ class UserFormsController < ApplicationController
     @user_form = UserForm.find(params[:id])
   end
 
+  def destroy
+    @user_form = UserForm.find(params[:id])
+    @user_form.destroy
+
+    redirect_to user_forms_path
+  end
+
   private
 
   def user_form_params

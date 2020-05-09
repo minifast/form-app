@@ -1,2 +1,5 @@
 <section class= 'form_inbox__title'> <%= t('.title') %></section>
-<section class= 'form_inbox__content'> <%= @user_form.name %> </section>
+<section class= 'form_inbox__content'>
+  <%= @user_form.name %>
+  <article class= 'my_forms__link'><%= link_to t('.delete_form'), user_form_path(id: @user_form.id), method:'delete', data: { confirm: t('.delete_confirmation_message') }%></article>
+</section>
