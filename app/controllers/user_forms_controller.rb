@@ -1,4 +1,8 @@
 class UserFormsController < ApplicationController
+  before_action :authenticate_user!
+
+  layout 'user_application'
+
 	def index
     @user_forms = UserForm.all
   end

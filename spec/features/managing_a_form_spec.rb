@@ -1,8 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Managing a form", type: :feature do
+  before { FactoryBot.create(:user, email: 'awesome@example.com', password: 'Sandwiches') }
+
   scenario 'manages a form', :js do
     visit root_path
+
+    expect(page).to have_content("Log In")
+
+    fill_in 'Email', with: 'awesome@example.com'
+    fill_in 'Password', with: 'Sandwiches'
+    click_on  'Log In'
 
     click_on 'Create Form'
     expect(page).to have_content("Form could not be created")

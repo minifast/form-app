@@ -30,6 +30,29 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: address is already in use. Please try another.
+  devise:
+    registrations:
+      new:
+        email: New Account Email
+        password: New Password
+        password_confirmation: Confirm Password
+        sign_up: Create Account
+        title: Sign Up
+        error:
+    sessions:
+      new:
+        email: Email
+        log_in: Log In
+        password: Password
+        remember_me: Remember Me
+        title: Log In
   footer:
     copyright: ©
     ministry_of_velocity: Ministry of Velocity
