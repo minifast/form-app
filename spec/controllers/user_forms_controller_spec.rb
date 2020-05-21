@@ -180,7 +180,7 @@ RSpec.describe UserFormsController, type: :controller do
       end
 
       context "when the user form exists" do
-        let!(:user_form) { FactoryBot.create(:user_form) }
+        let!(:user_form) { FactoryBot.create(:user_form, name: "Sandwich Form") }
 
         it "redirects to show page" do
           make_request(user_form)
@@ -189,6 +189,11 @@ RSpec.describe UserFormsController, type: :controller do
 
         it "deletes the user form" do
           expect{make_request(user_form)}.to change(UserForm, :count).by(-1)
+        end
+
+        it "shows a flash message" do
+          make_request(user_form)
+          expect(flash[:notice]).to eq("Sandwich Form successfully deleted")
         end
       end
     end

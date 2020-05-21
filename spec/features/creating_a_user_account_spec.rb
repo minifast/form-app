@@ -5,7 +5,7 @@ RSpec.describe "Creating a user account", type: :feature do
     visit new_user_registration_path
 
     expect(page).to have_content("FormApp")
-    expect(page).to have_content("Sign Up")
+    expect(page).to have_content("Create New Account")
 
     within(".formapp-header") do
       expect(page).not_to have_content("Create New Form")
@@ -75,7 +75,7 @@ RSpec.describe "Creating a user account", type: :feature do
     expect(page).to have_content("Welcome! You have signed up successfully.")
 
     click_on 'Sign Out'
-    click_on 'Sign up'
+    click_on 'Create New Account'
 
     fill_in 'New Account Email', with: 'awesome@example.com'
     fill_in 'New Password', with: 'Sandwiches'

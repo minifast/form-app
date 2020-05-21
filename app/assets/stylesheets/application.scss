@@ -16,4 +16,7 @@
 @import "lib/**/*";
 @import "oceana/**/*";
 @import "partials/**/*";
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+  color: formapp-color('red', '500');
+ }

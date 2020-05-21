@@ -32,6 +32,10 @@ RSpec.describe "Managing a form", type: :feature do
 
     click_on 'Delete Form'
     page.accept_alert
-    expect(page).not_to have_content("My New Form")
+    expect(page).to have_content("My New Form successfully deleted")
+
+    within(".my_forms__content") do
+      expect(page).not_to have_content("My New Form")
+    end
   end
 end

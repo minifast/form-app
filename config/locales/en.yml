@@ -36,7 +36,7 @@ en:
         user:
           attributes:
             email:
-              taken: address is already in use. Please try another.
+              taken: address is already in use. Please try another
   devise:
     registrations:
       new:
@@ -44,8 +44,9 @@ en:
         password: New Password
         password_confirmation: Confirm Password
         sign_up: Create Account
-        title: Sign Up
+        title: Create New Account
         error:
+        create_dialog: Already have an account?
     sessions:
       new:
         email: Email
@@ -53,6 +54,7 @@ en:
         password: Password
         remember_me: Remember Me
         title: Log In
+        space: "|"
   footer:
     copyright: ©
     ministry_of_velocity: Ministry of Velocity
@@ -71,6 +73,8 @@ en:
   user_forms:
     create:
       success: Form successfully created
+    destroy:
+      success: "%{name} successfully deleted"
     index:
       header: My Forms
       add_new_form: Add New Form

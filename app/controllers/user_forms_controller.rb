@@ -1,8 +1,6 @@
 class UserFormsController < ApplicationController
   before_action :authenticate_user!
 
-  layout 'user_application'
-
 	def index
     @user_forms = UserForm.all
   end
@@ -27,8 +25,9 @@ class UserFormsController < ApplicationController
 
   def destroy
     @user_form = UserForm.find(params[:id])
-    @user_form.destroy
-
+    if @user_form.destroy
+      flash.notice = t('.success', name: @user_form.name)
+    end
     redirect_to user_forms_path
   end
 
