@@ -1,15 +1,15 @@
 <% if flash[:notice] %>
-  <section class='user-flash--container'>
-    <article class='user-flash--notice'>
-      <%= inline_svg_tag 'success.svg', class: 'user-flash--notice-icon' %>
+  <section class='user-flash__container'>
+    <article class='user-flash__notice'>
+      <%= inline_svg_tag 'success.svg', class: 'user-flash__notice--icon' %>
       <%= flash[:notice] %>
     </article>
   </section>
 <% end %>
 
 <% [ flash[:alert] ].flatten.compact.each do |alert| %>
-  <article class="user-flash--alert">
-    <%= inline_svg_tag 'error.svg', class: 'user-flash--alert-icon' %>
+  <article class="user-flash__alert">
+    <%= inline_svg_tag 'error.svg', class: 'user-flash__alert--icon' %>
     <%= alert %>
   </article>
 <% end %>

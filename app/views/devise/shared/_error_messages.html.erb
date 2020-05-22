@@ -1,7 +1,7 @@
 <% if resource.errors.any? %>
-  <section class='flash--alert'>
+  <section class='flash__alert'>
     <% resource.errors.full_messages.each do |message| %>
-        <%= inline_svg_tag 'error.svg', class: 'flash--alert-icon' %>
+        <%= inline_svg_tag 'error.svg', class: 'flash__alert--icon' %>
         <%= message %>.<br />
     <% end %>
   </section>

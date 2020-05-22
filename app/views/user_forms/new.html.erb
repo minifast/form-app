@@ -1,15 +1,15 @@
-<section class= 'create_form__title'> <%= t('.title') %></section>
-<section class= 'user-flash--alert'>
+<section class= 'create-form__title'> <%= t('.title') %></section>
+<section class= 'user-flash__alert'>
  <% @user_form.errors.full_messages.each do |error| %>
-  <%= inline_svg_tag 'error.svg', class: 'user-flash--alert-icon' %>
+  <%= inline_svg_tag 'error.svg', class: 'user-flash__alert--icon' %>
   <%= t('.error') %>
   <%= error %>
  <% end %>
 </section>
-<section class= 'create_form__form--content'>
+<section class= 'create-form__form--content'>
   <%= form_for @user_form do |f| -%>
     <%= f.label :name, t('.name') %>
-    <%= f.text_field :name, :class => 'create_form__form--text-field', :maxlength =>'60' %>
+    <%= f.text_field :name, :class => 'create-form__form--text-field', :maxlength =>'60' %>
     <%= f.submit t('.submit'), :class => 'mui-btn mui-btn--danger sign-up__form--button' %>
   <% end -%>
 </section>

@@ -1,30 +1,28 @@
 .flash {
-
-  &--alert {
+  &__alert {
     color: formapp-color('red', '500');
     margin-bottom: formapp-space(1);
+
+    &--icon {
+      fill: formapp-color('red', '500');
+      margin-right: formapp-space(-4);
+    }
   }
 
-  &--alert-icon {
-    fill: formapp-color('red', '500');
-    margin-right: formapp-space(-4);
-  }
-
-  &--container {
+  &__container {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-bottom: formapp-space(2);
   }
 
-  &--notice {
+  &__notice {
     color: formapp-color('black', '1000');
     margin-bottom: formapp-space(1);
-  }
 
-  &--notice-icon {
-    fill: formapp-color('black', '1000');
-    margin-right: formapp-space(-4);
+    &--icon {
+      fill: formapp-color('black', '1000');
+      margin-right: formapp-space(-4);
+    }
   }
-
 }
