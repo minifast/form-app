@@ -25,8 +25,6 @@ RSpec.describe "Creating a user account", type: :feature do
     within(".formapp-header") do
       expect(page).to have_content("Create New Form")
       expect(page).to have_content("My Forms")
-      expect(page).to have_content("Forms Settings")
-      expect(page).to have_content("Account")
       expect(page).to have_content("Sign Out")
     end
 
@@ -37,8 +35,6 @@ RSpec.describe "Creating a user account", type: :feature do
     within(".formapp-header") do
       expect(page).not_to have_content("Create New Form")
       expect(page).not_to have_content("My Forms")
-      expect(page).not_to have_content("Forms Settings")
-      expect(page).not_to have_content("Account")
       expect(page).not_to have_content("Sign Out")
     end
 
@@ -51,8 +47,6 @@ RSpec.describe "Creating a user account", type: :feature do
     within(".formapp-header") do
       expect(page).to have_content("Create New Form")
       expect(page).to have_content("My Forms")
-      expect(page).to have_content("Forms Settings")
-      expect(page).to have_content("Account")
       expect(page).to have_content("Sign Out")
     end
   end
