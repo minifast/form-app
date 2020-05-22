@@ -122,7 +122,7 @@ RSpec.describe UserFormsController, type: :controller do
       let(:user_form) { FactoryBot.create(:user_form) }
 
       it "redirects to log in page" do
-        make_request(user_form)
+        make_request(user_form.id)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -142,12 +142,12 @@ RSpec.describe UserFormsController, type: :controller do
         let(:user_form) { FactoryBot.create(:user_form) }
 
         it "is successful" do
-          make_request(user_form)
+          make_request(user_form.id)
           expect(response).to be_successful
         end
 
         it "returns user form" do
-          make_request(user_form)
+          make_request(user_form.id)
           expect(assigns(:user_form)).to eq(user_form)
         end
       end
@@ -163,7 +163,7 @@ RSpec.describe UserFormsController, type: :controller do
       let!(:user_form) { FactoryBot.create(:user_form) }
 
       it "redirects to log in page" do
-        make_request(user_form)
+        make_request(user_form.id)
         expect(response).to redirect_to(new_user_session_path)
       end
     end
@@ -183,16 +183,16 @@ RSpec.describe UserFormsController, type: :controller do
         let!(:user_form) { FactoryBot.create(:user_form, name: "Sandwich Form") }
 
         it "redirects to show page" do
-          make_request(user_form)
+          make_request(user_form.id)
           expect(response).to redirect_to(user_forms_path)
         end
 
         it "deletes the user form" do
-          expect{make_request(user_form)}.to change(UserForm, :count).by(-1)
+          expect{make_request(user_form.id)}.to change(UserForm, :count).by(-1)
         end
 
         it "shows a flash message" do
-          make_request(user_form)
+          make_request(user_form.id)
           expect(flash[:notice]).to eq("Sandwich Form successfully deleted")
         end
       end
