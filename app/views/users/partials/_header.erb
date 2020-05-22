@@ -11,7 +11,7 @@
     </label>
 
     <nav class= 'formapp-header__navigation'>
-      <%= link_to t(:create_new_form, scope: [:header]), user_forms_new_path, class: 'formapp-header__link' %>
+      <%= link_to t(:create_new_form, scope: [:header]), new_user_form_path, class: 'formapp-header__link' %>
       <%= link_to t(:my_forms, scope: [:header]), user_forms_path, class: 'formapp-header__link' %>
       <%= link_to t(:sign_out, scope: [:header]), destroy_user_session_path, method: :delete, class: 'formapp-header__link' %>
     </nav>

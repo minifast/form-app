@@ -101,12 +101,12 @@ RSpec.describe UserFormsController, type: :controller do
 
       context "when the name is invalid" do
         it "renders new page" do
-          make_request(user_form: {name: "."})
+          make_request(user_form: {name: ""})
           expect(response).to render_template(:new)
         end
 
         it "shows an error message" do
-          make_request(user_form: {name: "."})
+          make_request(user_form: {name: ""})
           expect(assigns(:user_form).errors.full_messages).to eq(["Name is too short (minimum is 2 characters)"])
         end
       end

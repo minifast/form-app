@@ -13,23 +13,24 @@ RSpec.describe "Managing a form", type: :feature do
     click_on  'Log In'
 
     click_on 'Create Form'
-    expect(page).to have_content("Form could not be created")
-
-    fill_in 'Form Name', with: '.'
-    click_on 'Create Form'
     expect(page).to have_content("Form could not be created. Name is too short")
 
     fill_in 'Form Name', with: 'My New Form'
     click_on 'Create Form'
-
     expect(page).to have_content("Form successfully created")
+
+    expect(page).to have_css("section", text: "My Forms")
+
+    click_on 'Sign Out'
+
+    fill_in 'Email', with: 'awesome@example.com'
+    fill_in 'Password', with: 'Sandwiches'
+    click_on  'Log In'
+
     expect(page).to have_css("section", text: "My Forms")
     expect(page).to have_link("Add New Form")
 
     click_on 'My New Form'
-    expect(page).to have_content("Form Inbox")
-    expect(page).to have_content("My New Form")
-
     click_on 'Delete Form'
     page.accept_alert
     expect(page).to have_content("My New Form successfully deleted")
