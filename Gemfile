@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'pg'
 gem 'inline_svg'
 gem 'devise', '~> 4.2'
+gem 'sidekiq'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -32,6 +33,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'guard'
   gem 'guard-livereload', '~> 2.5', require: false
+  gem 'letter_opener'
 end
 
 group :test do
