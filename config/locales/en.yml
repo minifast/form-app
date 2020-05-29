@@ -38,17 +38,26 @@ en:
             email:
               taken: address is already in use. Please try another
   devise:
+    passwords:
+      new:
+        log_in: Log in
+        create_new_account: Create new account
+        title: Forgot your password?
+        send_instructions: Send me instructions
+        space: "|"
     registrations:
       new:
+        log_in: Log in
         email: New Account Email
         password: New Password
         password_confirmation: Confirm Password
         sign_up: Create Account
         title: Create New Account
-        error:
         create_dialog: Already have an account?
     sessions:
       new:
+        create_new_account: Create new account
+        forgot_password: Forgot password
         email: Email
         log_in: Log In
         password: Password

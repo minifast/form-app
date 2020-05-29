@@ -24,7 +24,7 @@
   <section class= 'sign-up__links'>
     <%= t('.create_dialog') %>
     <%- if controller_name != 'sessions' %>
-      <%= link_to "Log in", new_session_path(resource_name) %><br />
+      <%= link_to t('.log_in'), new_session_path(resource_name) %><br />
     <% end %>
   </section>
 </section>

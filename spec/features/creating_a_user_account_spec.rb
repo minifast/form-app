@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Creating a user account", type: :feature do
+  include ActiveJob::TestHelper
   scenario 'creates a user account', :js do
     visit new_user_registration_path
 
@@ -10,8 +11,6 @@ RSpec.describe "Creating a user account", type: :feature do
     within(".formapp-header") do
       expect(page).not_to have_content("Create New Form")
       expect(page).not_to have_content("My Forms")
-      expect(page).not_to have_content("Forms Settings")
-      expect(page).not_to have_content("Account")
       expect(page).not_to have_content("Sign Out")
     end
 
@@ -49,6 +48,23 @@ RSpec.describe "Creating a user account", type: :feature do
       expect(page).to have_content("My Forms")
       expect(page).to have_content("Sign Out")
     end
+
+    click_on 'Sign Out'
+    click_on 'Forgot password'
+
+    expect(page).to have_content("Forgot your password?")
+
+    fill_in 'Email', with: 'awesome@example.com'
+    perform_enqueued_jobs do
+      click_on  'Send me instructions'
+    end
+
+    expect(page).to have_content("You will receive an email with instructions on how to reset your password in a few minutes.")
+
+    last_email = ActionMailer::Base.deliveries.last
+    expect(last_email.to).to eq ['awesome@example.com']
+    expect(last_email.subject).to have_content 'Reset password instructions'
+
   end
 
   scenario 'sees validation errors', :js do
@@ -69,7 +85,7 @@ RSpec.describe "Creating a user account", type: :feature do
     expect(page).to have_content("Welcome! You have signed up successfully.")
 
     click_on 'Sign Out'
-    click_on 'Create New Account'
+    click_on 'Create new account'
 
     fill_in 'New Account Email', with: 'awesome@example.com'
     fill_in 'New Password', with: 'Sandwiches'
