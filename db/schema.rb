@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_181050) do
+ActiveRecord::Schema.define(version: 2020_05_29_220431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "user_form_messages", force: :cascade do |t|
+    t.bigint "user_form_id", null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["created_at"], name: "index_user_form_messages_on_created_at"
+    t.index ["user_form_id"], name: "index_user_form_messages_on_user_form_id"
+  end
 
   create_table "user_forms", force: :cascade do |t|
     t.string "name", null: false
@@ -41,4 +52,5 @@ ActiveRecord::Schema.define(version: 2020_05_15_181050) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "user_form_messages", "user_forms"
 end

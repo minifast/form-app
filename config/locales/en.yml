@@ -68,7 +68,6 @@ en:
     copyright: ©
     ministry_of_velocity: Ministry of Velocity
     privacy: Privacy Policy
-    terms: Terms of Use
   header:
     title: FormApp
     toggle_menu: Toggle Menu
@@ -77,8 +76,6 @@ en:
     forms_settings: Forms Settings
     account: Account
     sign_out: Sign Out
-  partials:
-
   user_forms:
     create:
       success: Form successfully created
@@ -97,3 +94,13 @@ en:
       delete_confirmation_message: Are you sure you want to delete this form? This will permanently delete your messages.
       delete_form: Delete Form
       title: Form Inbox
+    user_form_messages:
+      create:
+        success: Message has been sent successfully
+      new:
+        email: Email
+        message: Message
+        name: Name
+        submit: Submit
+        title: Form Preview
+      terms: Terms of Use

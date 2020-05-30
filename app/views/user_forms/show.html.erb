@@ -2,4 +2,6 @@
 <section class= 'form_inbox__content'>
   <%= @user_form.name %>
   <article class= 'my_forms__link'><%= link_to t('.delete_form'), user_form_path(id: @user_form.id), method:'delete', data: { confirm: t('.delete_confirmation_message') }%></article>
+  <%= link_to "Back to Preview", new_user_form_user_form_messages_path(user_form_id: @user_form.id) %>
+  <%= @user_form_messages.inspect %>
 </section>

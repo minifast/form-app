@@ -13,7 +13,7 @@ class UserFormsController < ApplicationController
   	@user_form = UserForm.new(user_form_params)
   	if @user_form.save
   		flash.notice = t('.success')
-  		redirect_to user_forms_path
+  		redirect_to new_user_form_user_form_messages_path(user_form_id: @user_form.id)
   	else
       render :new
   	end
@@ -21,6 +21,7 @@ class UserFormsController < ApplicationController
 
   def show
     @user_form = UserForm.find(params[:id])
+    @user_form_messages = @user_form.user_form_messages
   end
 
   def destroy

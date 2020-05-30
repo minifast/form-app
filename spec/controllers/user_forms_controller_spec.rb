@@ -85,7 +85,7 @@ RSpec.describe UserFormsController, type: :controller do
 
       it "redirects to show page" do
         make_request(user_form: {name: "Contact Form"})
-        expect(response).to redirect_to(user_forms_path)
+        expect(response).to redirect_to(new_user_form_user_form_messages_path(UserForm.last.id))
       end
 
       it "shows a flash message" do

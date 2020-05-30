@@ -1,0 +1,10 @@
+<section class= 'user-form-message__title'> <%= t('.title') %></section>
+<%= form_for @user_form_message, url: user_form_user_form_messages_path(@user_form.id) do |f| -%>
+  <%= f.label :name, t('.name') %>
+  <%= f.text_field :name, :class => 'user-form-message__form--text-field', :maxlength =>'60' %>
+  <%= f.label :email, t('.email') %>
+  <%= f.text_field :email, :class => 'user-form-message__form--text-field', :maxlength =>'60' %>
+  <%= f.label :message, t('.message') %>
+  <%= f.text_field :message, :class => 'user-form-message__form--text-field', :maxlength =>'60' %>
+  <%= f.submit t('.submit'), :class => 'mui-btn mui-btn--danger user-form-message__form--button' %>
+<% end -%>

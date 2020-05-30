@@ -18,8 +18,17 @@ RSpec.describe "Managing a form", type: :feature do
     fill_in 'Form Name', with: 'My New Form'
     click_on 'Create Form'
     expect(page).to have_content("Form successfully created")
+    expect(page).to have_content("Form Preview")
 
-    expect(page).to have_css("section", text: "My Forms")
+    fill_in 'Name', with: 'Jane Doe'
+    fill_in 'Email', with: 'jane@thedoeknows.com'
+    fill_in 'Message', with: 'Hey! This is Jane!'
+    click_on 'Submit'
+
+    expect(page).to have_css("section", text: "Form Inbox")
+    expect(page).to have_css("section", text: "My New Form")
+    expect(page).to have_content("jane@thedoeknows.com")
+    expect(page).to have_content("Hey! This is Jane!")
 
     click_on 'Sign Out'
 
